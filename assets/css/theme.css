@@ -2401,7 +2401,7 @@ a.ph-category:hover {
 ===================================== */
 @media (min-width: 1025px) {
 	.portfolio-list.pl-alter .portfolio-list-item:nth-child(even) {
-		margin-left: 40%;
+		margin-left: 35%;
 		margin-right: 17%;
 	}
 	.portfolio-list.pl-alter .portfolio-list-item:nth-child(odd) {
@@ -2433,7 +2433,7 @@ a.ph-category:hover {
 	}
 	.portfolio-list.pl-alter .portfolio-list-item:nth-child(odd) .pli-counter {
 		left: auto;
-		right: -30%;
+		right: -38%;
 	}
 }
 

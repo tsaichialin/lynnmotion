@@ -72,15 +72,15 @@
 			var tl_transitOut = gsap.timeline();
 
 				 if ($("#page-transition").length) {
-					tl_transitOut.to(".ptr-preloader", { duration: 1.5, autoAlpha: 0, ease: Expo.easeInOut });
-					tl_transitOut.to(".ptr-overlay", { duration: 1.5, scaleY: 0, transformOrigin: "center top", ease: Expo.easeInOut }, 0.3);
+					tl_transitOut.to(".ptr-preloader", { duration: .7, autoAlpha: 0, ease: Expo.easeInOut });
+					tl_transitOut.to(".ptr-overlay", { duration: .7, scaleY: 0, transformOrigin: "center top", ease: Expo.easeInOut }, 0.3);
 				 }
 
 				 // tt-Header appear
-				 tl_transitOut.from("#tt-header", { duration: 1.5, y: 20, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 0.6);
+				 tl_transitOut.from("#tt-header", { duration: .7, y: 20, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 0.6);
 
 				 // tt-Footer appear
-				 tl_transitOut.from("#tt-footer", { duration: 1.5, y: 20, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 0.2);
+				 tl_transitOut.from("#tt-footer", { duration: .7, y: 20, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 0.2);
 
 				 // Page header image appear
 				 if ($(".ph-image").length) {

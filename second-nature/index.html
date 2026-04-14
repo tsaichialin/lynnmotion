@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SECOND NATURE — Season Collection</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Language Toggle -->
+  <nav class="lang-toggle" id="lang-toggle">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <button class="lang-btn" data-lang="zh">繁中</button>
+  </nav>
+
+  <!-- Page Tabs -->
+  <nav class="page-tabs" id="page-tabs" aria-label="Page navigation">
+    <a href="#/project" class="page-tab active" data-page="project">The Project</a>
+    <span class="page-tab-sep" aria-hidden="true">·</span>
+    <a href="#/making-of" class="page-tab" data-page="making-of">The Making Of</a>
+  </nav>
+
+  <!-- Page transition curtain -->
+  <div id="page-curtain" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════
+       PAGE: THE PROJECT
+  ══════════════════════════════════════════ -->
+  <div id="page-project" class="page-view page-active">
+
+    <!-- Case Progress -->
+    <div class="case-progress" id="case-progress" aria-hidden="true">
+      <div class="cp-track"><div class="cp-fill" id="cp-fill"></div></div>
+      <span class="cp-label" id="cp-label">— / 16</span>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         INTRO ZONE — sticky video + Hero + Narrative
+    ══════════════════════════════════════════ -->
+    <div id="intro-zone">
+
+      <div class="video-sticky" id="video-sticky">
+        <video id="hero-video" muted playsinline preload="auto" tabindex="-1">
+          <source src="assets/videos/hero_bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+
+      <!-- Hero: centered redacted text -->
+      <section id="hero">
+        <div class="hero-center">
+          <div class="h-redact" id="h-line-1">
+            <span class="h-sub" data-en="You've received an invitation from" data-zh="你收到了一封邀請">You've received an invitation from</span>
+          </div>
+          <div class="h-redact h-redact-brand" id="h-line-2">
+            <span class="h-brand">SECOND NATURE</span>
+          </div>
+          <div class="h-redact h-redact-suffix" id="h-line-3">
+            <span class="h-suffix" data-zh="的邀請。"></span>
+          </div>
+        </div>
+        <p class="hero-stamp">Case File · Season Collection</p>
+      </section>
+
+      <!-- Narrative: on video, larger text, redacted -->
+      <section id="narrative">
+        <div class="narrative-inner">
+          <div class="n-redact">
+            <span data-en="This is not just a fashion catalogue" data-zh="這不只是一本時裝型錄">This is not just a fashion catalogue</span>
+          </div>
+          <div class="n-redact">
+            <span data-en="This is a case file — 16 scenes, one investigation" data-zh="這是一份案件卷宗—16幕場景，一場調查">This is a case file — 16 scenes, one investigation</span>
+          </div>
+          <div class="n-redact">
+            <span data-en="Each scene leaves its mark" data-zh="每一幕都有它的痕跡">Each scene leaves its mark</span>
+          </div>
+          <div class="n-redact">
+            <span data-en="Start here" data-zh="從這裡開始">Start here</span>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /intro-zone -->
+
+    <!-- Fixed scroll cue -->
+    <div id="n-cue-fixed" class="n-cue-fixed" aria-hidden="true">
+      <span class="n-arrow"></span>
+      <span class="n-cue-text" data-en="follow the clues" data-zh="順著線索走">follow the clues</span>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         CASES
+    ══════════════════════════════════════════ -->
+    <div id="cases-container">
+      <!-- Cases + spacer injected by JS -->
+    </div>
+
+    <!-- ══════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════ -->
+    <footer id="footer">
+      <div class="footer-inner">
+        <div class="footer-lines">
+          <p class="f-line" data-en="You've moved through every scene —" data-zh="你走過了每一幕場景——">You've moved through every scene —</p>
+          <p class="f-line" data-en="and left with more than you came with." data-zh="離開時，你帶走的比來時更多">and left with more than you came with.</p>
+        </div>
+        <div class="footer-brand-block">
+          <div class="footer-rule"></div>
+          <p class="footer-name">SECOND NATURE</p>
+          <p class="footer-sub">Season Collection</p>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /page-project -->
+
+
+  <!-- ══════════════════════════════════════
+       PAGE: THE MAKING OF
+  ══════════════════════════════════════════ -->
+  <div id="page-making-of" class="page-view">
+
+    <!-- Hero -->
+    <section class="mo-hero">
+      <div class="mo-hero-inner">
+        <div class="mo-hero-meta">
+          <span class="mo-brand-label">SECOND NATURE</span>
+        </div>
+        <h1 class="mo-title" data-en="Concept, Content, Code: Building a Fashion Campaign Page with AI" data-zh="概念、內容、程式碼：與 AI 協作打造活動網頁">Concept, Content, Code: Building a Fashion Campaign Page with AI</h1>
+      </div>
+      <div class="mo-hero-rule"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="mo-main">
+
+      <!-- ── Part 1: Concept ── -->
+      <article class="mo-part" id="mo-part-1">
+        <header class="mo-part-header">
+          <span class="mo-part-num">Part 1</span>
+          <h2 class="mo-part-title" data-en="Concept: Ideation and Web Architecture with AI" data-zh="概念發展：AI 協助內容發想與網頁架構規劃">Concept: Ideation and Web Architecture with AI</h2>
+        </header>
+        <div class="mo-part-body">
+          <p data-en="The concept centers on a fictional fashion brand called SECOND NATURE. The campaign page follows a protagonist through a series of events, using 16 distinct scenes to showcase clothing through cinematic, narrative-driven fashion photography." data-zh="這個企畫的概念是設定一個時尚品牌 SECOND NATURE 並為其製作一個活動網頁，讓觀者跟隨主角進入一系列事件中，結合 16 個不同場景來展示服裝，呈現有故事感的時尚攝影照片。">The concept centers on a fictional fashion brand called SECOND NATURE. The campaign page follows a protagonist through a series of events, using 16 distinct scenes to showcase clothing through cinematic, narrative-driven fashion photography.</p>
+
+          <p data-en="The main characters — a woman and a dark creature — are carried over from a previous project. Drawing inspiration from film, the woman explores a series of suspenseful, cinematic scenarios dressed in SECOND NATURE pieces." data-zh="主角沿用之前作品中的角色：女子與黑色怪獸。場景靈感來自電影，女孩穿著 SECOND NATURE 服裝在故事中探索，走進一場場懸疑的情境之中。">The main characters — a woman and a dark creature — are carried over from a previous project. Drawing inspiration from film, the woman explores a series of suspenseful, cinematic scenarios dressed in SECOND NATURE pieces.</p>
+
+          <p data-en="The process started with conversations in Perplexity, using both Claude and ChatGPT to work through the content, structure, and execution details. After several rounds of discussion, the direction gradually came into focus." data-zh="概念發展的起點，是在 Perplexity 中使用 Claude 跟 ChatGPT 模型討論這次的網頁內容、架構與執行細節，概念與方向在多次討論後逐漸明確。">The process started with conversations in Perplexity, using both Claude and ChatGPT to work through the content, structure, and execution details. After several rounds of discussion, the direction gradually came into focus.</p>
+
+          <div class="mo-img-block">
+            <div class="mo-img-row cols-2">
+              <img src="assets/images/making-of/image01_1.png" alt="AI discussion — content and architecture" loading="lazy">
+              <img src="assets/images/making-of/image01_2.png" alt="AI discussion — web interaction techniques" loading="lazy">
+            </div>
+            <span class="mo-img-caption" data-en="Fig. 1. Conversations with LLMs — from overall architecture down to the details" data-zh="圖 1. 在網頁介面中與 LLM 討論從架構到細節">Fig. 1. Conversations with LLMs — from overall architecture down to the details</span>
+          </div>
+
+          <p data-en="Beyond content, the technical direction was also established at this stage. Early testing was done to verify whether the concept was actually buildable." data-zh="除了文字內容外，技術方向也是在這個階段確立的，提前測試的目的是想確認概念是否可被執行。">Beyond content, the technical direction was also established at this stage. Early testing was done to verify whether the concept was actually buildable.</p>
+
+          <p data-en="Various interaction techniques were prototyped using Claude's web interface. Any promising visual or motion effects were exported as HTML and later imported into Claude Code for refinement." data-zh="透過 Claude 網頁版測試各種網頁互動技術，如果有適合的視覺 / 動態效果就輸出成 HTML，後續再匯入 Claude Code 調整。">Various interaction techniques were prototyped using Claude's web interface. Any promising visual or motion effects were exported as HTML and later imported into Claude Code for refinement.</p>
+
+          <p data-en="Several key decisions were locked in during this phase: a single-page layout, a 5-second hero video at the top, and a scroll-driven video playback — where the video timeline advances as the user scrolls." data-zh="在這個過程中確定了幾個重點：製作一頁式網頁、開頭是一段 5 秒影片，影片時間點會隨著使用者捲動網頁而改變。">Several key decisions were locked in during this phase: a single-page layout, a 5-second hero video at the top, and a scroll-driven video playback — where the video timeline advances as the user scrolls.</p>
+
+          <p data-en="To match the detective story tone, Claude was asked to suggest suitable interaction techniques — including transitions between scenes. Two features were selected:" data-zh="在網頁互動上想要呼應偵探故事主題，於是詢問 Claude 可能的網頁互動方式與技術，例如頁面互動與不同場景間的過場方式，最後決定使用下面兩項互動功能：">To match the detective story tone, Claude was asked to suggest suitable interaction techniques — including transitions between scenes. Two features were selected:</p>
+
+          <ul class="mo-list">
+            <li data-en="Redacted Reveal — a text effect that simulates classified information being uncovered. Each line of text is covered by a black overlay that slides away in sequence after a scene transition, like a declassified document being read for the first time." data-zh="加上遮黑文字揭露（ Redacted Reveal ）的功能，模擬出遮蓋訊息被揭露的過程，實務做法是每行文字上方加上一層黑色遮罩。場景切換後依序觸發文字滑出，像是機密文件被解密的感覺。">Redacted Reveal — a text effect that simulates classified information being uncovered. Each line of text is covered by a black overlay that slides away in sequence after a scene transition, like a declassified document being read for the first time.</li>
+            <li data-en="Hotspot Annotation — each scene features one clickable marker on the outfit that expands and collapses to reveal details about the garment." data-zh="服裝上增加標記點（ Hotspot Annotation ），每個場景有 1 個標記點，點擊可以收合 / 展開訊息，用這樣的方式來說明服裝的特點。">Hotspot Annotation — each scene features one clickable marker on the outfit that expands and collapses to reveal details about the garment.</li>
+          </ul>
+
+          <div class="mo-img-block">
+            <div class="mo-img-row cols-3">
+              <img src="assets/images/making-of/image02_1.jpg" alt="Redacted Reveal — before" loading="lazy">
+              <img src="assets/images/making-of/image02_2.jpg" alt="Redacted Reveal — in progress" loading="lazy">
+              <img src="assets/images/making-of/image02_3.jpg" alt="Redacted Reveal — revealed" loading="lazy">
+            </div>
+            <span class="mo-img-caption" data-en="Fig. 2. The Redacted Reveal animation in action" data-zh="圖 2：遮黑文字揭露（ Redacted Reveal ）效果">Fig. 2. The Redacted Reveal animation in action</span>
+          </div>
+
+          <p data-en="After multiple rounds of back-and-forth with Claude — refining direction, testing motion ideas, and finalizing interaction logic — the content and approach were solid enough to move into visual production." data-zh="反覆跟 Claude 討論釐清方向、測試動態與互動需求，直到大致確定了文字內容、概念與實際做法後，接下來進行視覺生成。">After multiple rounds of back-and-forth with Claude — refining direction, testing motion ideas, and finalizing interaction logic — the content and approach were solid enough to move into visual production.</p>
+        </div>
+      </article>
+
+      <!-- ── Part 2: Content ── -->
+      <article class="mo-part" id="mo-part-2">
+        <header class="mo-part-header">
+          <span class="mo-part-num">Part 2</span>
+          <h2 class="mo-part-title" data-en="Content: Images and Video with AI" data-zh="內容製作：AI 生成圖像與影片">Content: Images and Video with AI</h2>
+        </header>
+        <div class="mo-part-body">
+          <p data-en="Two image models were tested to explore visual directions. Flux leaned toward a graphic, fashion-illustration aesthetic (Fig. 3), while Nano Banana produced more realistic, cinematic results (Fig. 4) — a better fit for this project." data-zh="先使用 Flux 跟 Nano Banana 兩個圖像模型測試不同的視覺方向，Flux 偏向時尚插圖的風格 ( 圖 3 )，而 Nano Banana 偏向寫實與電影感 ( 圖 4 )，更適合這次內容。">Two image models were tested to explore visual directions. Flux leaned toward a graphic, fashion-illustration aesthetic (Fig. 3), while Nano Banana produced more realistic, cinematic results (Fig. 4) — a better fit for this project.</p>
+
+          <div class="mo-img-block">
+            <div class="mo-img-row cols-2">
+              <img src="assets/images/making-of/image03_1.jpg" alt="Flux style — fashion illustration" loading="lazy">
+              <img src="assets/images/making-of/image04_1.jpg" alt="Nano Banana style — cinematic" loading="lazy">
+            </div>
+            <span class="mo-img-caption" data-en="Fig. 3. Flux2 Pro — graphic and design-forward · Fig. 4. Nano Banana Pro/2 — cinematic and true-to-life" data-zh="圖 3  Flux2 Pro 視覺上有設計感 · 圖 4 Nano Banana Pro/2 更具有電影感">Fig. 3. Flux2 Pro — graphic and design-forward · Fig. 4. Nano Banana Pro/2 — cinematic and true-to-life</span>
+          </div>
+
+          <p data-en="Nanona was chosen to generate all images. Each image went through at least three rounds of iteration — a time-consuming but worthwhile process." data-zh="於是接下來用 Nano Banana 生成圖片。每一張圖片的生成都至少經過三次迭代，花了不少時間製作。">Nanona was chosen to generate all images. Each image went through at least three rounds of iteration — a time-consuming but worthwhile process.</p>
+
+          <div class="mo-steps">
+            <div class="mo-step">
+              <span class="mo-step-num">Step 1</span>
+              <div class="mo-step-content">
+                <p class="mo-step-title" data-en="Finding Scenes and Story Direction" data-zh="找出場景與故事概念">Finding Scenes and Story Direction</p>
+                <p data-en="The process started with a 3×3 grid — generating 9 images at once to quickly explore scene possibilities and save time. At this stage, the main criteria were relevance to the theme and whether each image felt like it had a story behind it." data-zh="一開始是先生成 3×3 九宮格（3×3 grid feed）版面，一次生成 9 張能快速找出場景，節省製作時間。這個階段，圖片選擇的主要依據是圖像跟主題的關聯性、畫面是否有故事感。">The process started with a 3×3 grid — generating 9 images at once to quickly explore scene possibilities and save time. At this stage, the main criteria were relevance to the theme and whether each image felt like it had a story behind it.</p>
+                <p data-en="The following prompt was used to place the character across a variety of settings:" data-zh="另外，包含下面這段 Prompt 可以讓角色出現在不同情境的場景中：">The following prompt was used to place the character across a variety of settings:</p>
+                <p data-en="Create a full Instagram-style composed of nine different portrait images. Each of the 9 images should present a unique concept, outfit, pose, and environment that fits a stylish, modern aesthetic." data-zh="Create a full Instagram-style composed of nine different portrait images. Each of the 9 images should present a unique concept, outfit, pose, and environment that fits a stylish, modern aesthetic.">Create a full Instagram-style composed of nine different portrait images. Each of the 9 images should present a unique concept, outfit, pose, and environment that fits a stylish, modern aesthetic.</p>
+                <p data-en="Include a mix of:" data-zh="Include a mix of:">Include a mix of:</p>
+                <ul class="mo-list mo-prompt-list">
+                  <li data-en="Cinematic portraits" data-zh="Cinematic portraits">Cinematic portraits</li>
+                  <li data-en="Fashion/streetwear scenes" data-zh="Fashion/streetwear scenes">Fashion/streetwear scenes</li>
+                  <li data-en="Close-up beauty shots" data-zh="Close-up beauty shots">Close-up beauty shots</li>
+                  <li data-en="Minimalist studio portraits" data-zh="Minimalist studio portraits">Minimalist studio portraits</li>
+                </ul>
+                <div class="mo-img-block">
+                  <img src="assets/images/making-of/image05_1.jpg" alt="3×3 grid generation" loading="lazy">
+                  <span class="mo-img-caption" data-en="Fig. 5. Generating a 3×3 grid of 9 images in one go using Nano Banana Pro/2 on Freepik" data-zh="圖 5 在 Freepik 中使用 Nano Banana Pro/2 一次生成 9 張影格">Fig. 5. Generating a 3×3 grid of 9 images in one go using Nano Banana Pro/2 on Freepik</span>
+                </div>
+              </div>
+            </div>
+            <div class="mo-step">
+              <span class="mo-step-num">Step 2</span>
+              <div class="mo-step-content">
+                <p class="mo-step-title" data-en="Multiple Shots Within the Same Scene" data-zh="生成同場景中的多顆鏡頭">Multiple Shots Within the Same Scene</p>
+                <p data-en='After generating a large pool of scenes, the best images were selected and expanded into a 2×3 grid of 6 shots. The focus here shifted from scene variety to variations within the same scene — different angles, emotional beats, and story moments. Note: the phrase "20-second cinematic clip" in the prompt below isn&apos;t asking for a video — it&apos;s instructing Nano Banana to think in terms of cinematic narrative logic across a series of still images.' data-zh="生成大量場景後，選出適合的圖片，再繼續延伸出 2×3 的 6 格畫面，這裡不再著重場景變化，而是相同場景中的不同鏡位、不同情緒與不同的情節。下面這段 Prompt 提到的「20秒電影片段」是要求 Nano Banana 以電影敘事邏輯在不同的圖片中展現不同的時間點，不是生成影片的意思。">After generating a large pool of scenes, the best images were selected and expanded into a 2×3 grid of 6 shots. The focus here shifted from scene variety to variations within the same scene — different angles, emotional beats, and story moments. Note: the phrase "20-second cinematic clip" in the prompt below isn't asking for a video — it's instructing Nano Banana to think in terms of cinematic narrative logic across a series of still images.</p>
+                <p data-en='Prompt: "Expand the image into a 20-second cinematic clip with a clear theme and emotional progression (setup → build → turn → payoff)."' data-zh="Prompt：將影像擴展成 20 秒的電影片段，具有清晰的主題和情感發展（鋪墊 → 構建 → 轉折 → 高潮）。Expand the image into a 20-second cinematic clip with a clear theme and emotional progression (setup → build → turn → payoff).">Prompt: "Expand the image into a 20-second cinematic clip with a clear theme and emotional progression (setup → build → turn → payoff)."</p>
+                <div class="mo-img-block">
+                  <img src="assets/images/making-of/image06_1.jpg" alt="2×3 grid — same scene multiple shots" loading="lazy">
+                  <span class="mo-img-caption" data-en="Fig. 6. Generating a 2×3 grid of 6 shots using Nano Banana Pro/2 on Freepik" data-zh="圖 6 在 Freepik 中使用 Nano Banana Pro/2 生成 2×3（2×3 grid feed）6 張影格">Fig. 6. Generating a 2×3 grid of 6 shots using Nano Banana Pro/2 on Freepik</span>
+                </div>
+              </div>
+            </div>
+            <div class="mo-step">
+              <span class="mo-step-num">Step 3</span>
+              <div class="mo-step-content">
+                <p class="mo-step-title" data-en="Upscaling and Refining" data-zh="放大圖片，並持續優化圖片">Upscaling and Refining</p>
+                <p data-en="Promising images from the previous step were upscaled, then refined across multiple variations. The strongest version of each was selected for the final site." data-zh="從上一個步驟的圖片選出適合的圖片放大，每一張圖片會繼續微調成多個不同版本，最終選擇一張最適合的視覺。">Promising images from the previous step were upscaled, then refined across multiple variations. The strongest version of each was selected for the final site.</p>
+                <div class="mo-img-block">
+                  <div class="mo-img-row cols-3">
+                    <img src="assets/images/making-of/image07_1.jpg" alt="Iteration version 1" loading="lazy">
+                    <img src="assets/images/making-of/image07_2.jpg" alt="Iteration version 2" loading="lazy">
+                    <img src="assets/images/making-of/image07_3.jpg" alt="Iteration version 3" loading="lazy">
+                  </div>
+                  <span class="mo-img-caption" data-en="Fig. 7. Selected images go through continuous rounds of refinement" data-zh="圖 7 選出來的圖片還會繼續微調，不斷迭代">Fig. 7. Selected images go through continuous rounds of refinement</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p data-en="With all 16 images finalized, attention turned to the hero video at the top of the page." data-zh="處理完 16 張圖片，繼續處理網頁頂端的影片。">With all 16 images finalized, attention turned to the hero video at the top of the page.</p>
+
+          <p data-en="The video serves as the background for the Hero Section — the large banner at the top of the page, the first thing visitors see. It shows the woman receiving an invitation letter, echoing the concept of being drawn into each event." data-zh="影片作用是 Hero Section 背景（Hero Section 指的是網頁設計中最顯眼的大型橫幅區塊，通常是進入網頁第一眼看到的內容。）影片內容展現女子收到一封邀請函，以呼應進入每個事件的概念。">The video serves as the background for the Hero Section — the large banner at the top of the page, the first thing visitors see. It shows the woman receiving an invitation letter, echoing the concept of being drawn into each event.</p>
+
+          <div class="mo-img-block">
+            <img src="assets/images/making-of/image08_1.jpg" alt="Dreamina video generation" loading="lazy">
+            <span class="mo-img-caption" data-en="Fig. 8. Generating the hero video using Seedance2 on the Dreamina platform" data-zh="圖 8 使用 Dreamina 平台 Seedance2 影片模型生成影片">Fig. 8. Generating the hero video using Seedance2 on the Dreamina platform</span>
+          </div>
+
+          <p data-en="With copy, images, and video all in place, it was time to start building with Claude Code." data-zh="現在已經有了文字、圖像與影片內容，接下來開始使用 Claude Code。">With copy, images, and video all in place, it was time to start building with Claude Code.</p>
+        </div>
+      </article>
+
+      <!-- ── Part 3: Code ── -->
+      <article class="mo-part" id="mo-part-3">
+        <header class="mo-part-header">
+          <span class="mo-part-num">Part 3</span>
+          <h2 class="mo-part-title" data-en="Code: Building and Publishing with Claude Code" data-zh="網頁製作：Claude Code 實作與發布">Code: Building and Publishing with Claude Code</h2>
+        </header>
+        <div class="mo-part-body">
+          <p data-en="The initial plan was to use Google Stitch for visual design and Claude Code for the code. But Stitch felt too limiting for precise detail work, so the approach was simplified: Claude Code combined with web-specific Skills." data-zh="一開始嘗試以 Google Stitch 做網頁設計、Claude Code 處理程式碼，但 Stitch 在細節調整上不夠直覺，於是決定使用 Claude Code + 網頁相關的 Skill。">The initial plan was to use Google Stitch for visual design and Claude Code for the code. But Stitch felt too limiting for precise detail work, so the approach was simplified: Claude Code combined with web-specific Skills.</p>
+
+          <p data-en="After installing Claude Code locally, a quick test was run through the CLI — a simple prompt to generate a basic webpage. It worked as expected." data-zh="在本機安裝 Claude Code 後，於 CLI 介面測試。使用一個簡單的 Prompt 要求 Claude 生成網頁，測試 OK。">After installing Claude Code locally, a quick test was run through the CLI — a simple prompt to generate a basic webpage. It worked as expected.</p>
+
+          <p data-en="For the actual build, Claude Code was moved into an IDE where the graphical interface is more manageable. Both Antigravity and VS Code were considered — Antigravity is a VS Code fork with a very similar interface — but VS Code won out for familiarity." data-zh="接下來進入製作改在 IDE 中使用 Claude Code，圖形介面更友善。IDE 的選擇上，考慮過 Antigravity 與 VS Code，Antigravity 是 VS Code 的分支，兩者介面相近，因此選擇較熟悉的 VS Code。">For the actual build, Claude Code was moved into an IDE where the graphical interface is more manageable. Both Antigravity and VS Code were considered — Antigravity is a VS Code fork with a very similar interface — but VS Code won out for familiarity.</p>
+
+          <p data-en="With the Claude Code extension installed in VS Code and a set of design Skills loaded as reference, the build could begin. A Skill here is a predefined visual specification document — it gives Claude a design system to follow when generating the page." data-zh="在 VS Code 安裝好 Claude Code 外掛，並使用一些相關的 Skill 作為設計語言的框架，就可以開始執行網頁製作了。這裡的 Skill 是一份定義好的視覺規範文件給 Claude 使用，讓 AI 在生成網頁時遵循特定的設計系統。">With the Claude Code extension installed in VS Code and a set of design Skills loaded as reference, the build could begin. A Skill here is a predefined visual specification document — it gives Claude a design system to follow when generating the page.</p>
+
+          <p data-en="Having a Skill doesn't guarantee a good-looking result. Aesthetic judgment and UI/UX experience are still essential for getting the details right. AI lowers the barrier to entry, but the quality of the outcome still depends on the person making the calls." data-zh="有了 Skill，不代表網頁就會好看，各種細節還是需要使用者的審美與 UI/UX 經驗繼續調整。AI 讓製作門檻降低，但使用者的能力依然決定最終網頁的品質。">Having a Skill doesn't guarantee a good-looking result. Aesthetic judgment and UI/UX experience are still essential for getting the details right. AI lowers the barrier to entry, but the quality of the outcome still depends on the person making the calls.</p>
+
+          <div class="mo-img-block">
+            <img src="assets/images/making-of/image09_1.png" alt="Claude Code in VS Code" loading="lazy">
+            <span class="mo-img-caption" data-en="Fig. 9. Claude Code running in VS Code. The diff view shows before (left) and after (right) — making every change easy to review. Designers without a coding background may not recognize CSS or JS, but that's perfectly fine. Claude Code handles all of it automatically." data-zh="圖 9 在 VS Code 中執行 Claude Code，主要區塊的左邊是修改前，右邊是修改後，能知道調整了什麼。沒寫過網頁的設計師可能看不懂 CSS 或 JS，但看不懂也沒問題，這些改動都是 Claude Code 自動執行的。">Fig. 9. Claude Code running in VS Code. The diff view shows before (left) and after (right) — making every change easy to review. Designers without a coding background may not recognize CSS or JS, but that's perfectly fine. Claude Code handles all of it automatically.</span>
+          </div>
+
+          <p data-en="Around the 80% mark, describing fine-tuned adjustments through prompts started to feel inefficient. Using Figma MCP was briefly considered for detail work, but the UI was simple enough that no formal design handoff was needed. Direct edits to CSS and JS turned out to be faster than prompting Claude Code for each small change." data-zh="製作到約 80% 後，用 Prompt 描述細節調整開始顯得綁手綁腳，有考慮後續是否使用 Figma MCP，到 Figma 去調整細節，但這頁 UI 相對單純，也不需要精確的設計稿交付。於是直接手寫修改 CSS 與 JS，比要求 Claude Code 逐一微調修改會更有效率。">Around the 80% mark, describing fine-tuned adjustments through prompts started to feel inefficient. Using Figma MCP was briefly considered for detail work, but the UI was simple enough that no formal design handoff was needed. Direct edits to CSS and JS turned out to be faster than prompting Claude Code for each small change.</p>
+
+          <p data-en="Claude Code is powerful, but Anthropic places usage limits on it. The 5-hour session limit and 7-day usage cap came up repeatedly throughout the build, requiring frequent pauses while waiting for the session counter to reset." data-zh="Claude Code 雖然強大，但 Anthropic 控管使用量，在過程中不斷碰到 Claude Code 的 5 小時 Session Limit 與 7 天的用量限制，常常做到一半必須停下來等 Session 計算重置。">Claude Code is powerful, but Anthropic places usage limits on it. The 5-hour session limit and 7-day usage cap came up repeatedly throughout the build, requiring frequent pauses while waiting for the session counter to reset.</p>
+        </div>
+      </article>
+
+      <!-- ── Closing ── -->
+      <div class="mo-closing">
+        <p class="mo-closing-line" data-en="The biggest difference AI makes in web production is speed of problem-solving. What used to mean long detours through Google Search and Stack Overflow can now be handled in a conversation with an LLM — leaving more time and energy for experimentation and refinement. The finished page was published to GitHub Pages to make it publicly accessible." data-zh="在網頁製作上使用 AI 最大的差異是解決問題的效率大為提升。以前得花大量時間在 Google Search 與 Stack Overflow 裡尋找答案，現在則萬事皆可問 LLM，也可以做更多的嘗試，提高精緻度。最後就是把完成的網頁上傳至 GitHub Pages，讓網頁可以被看見。">The biggest difference AI makes in web production is speed of problem-solving. What used to mean long detours through Google Search and Stack Overflow can now be handled in a conversation with an LLM — leaving more time and energy for experimentation and refinement. The finished page was published to GitHub Pages to make it publicly accessible.</p>
+        <p class="mo-closing-line" data-en="That covers the full process — from the initial idea to a live, published page, built in collaboration with AI." data-zh="以上就是與 AI 協作從最初的發想到執行完成的過程。">That covers the full process — from the initial idea to a live, published page, built in collaboration with AI.</p>
+        <p class="mo-closing-line" data-en="Despite the heavy use of AI tools throughout, the human element remains irreplaceable. Every meaningful decision — the theme, the visual direction, the interaction design — required human judgment. As Agentic Workflows mature, it may eventually be possible to automate the entire pipeline. But AI tends toward the aesthetic average, producing results that can feel visually generic. For a project like this — unconventional and narrative-driven — human intervention isn't optional, it's what makes the difference." data-zh="雖然大量使用 AI 工具協作，但人還是最不可或缺。從主題選定、視覺美學與網頁互動方式的選擇，都有賴於人做出適合的決策，未來若 Agentic Workflow（代理式工作流程）成熟，或許可以將整個過程自動化。但 AI 的審美傾向平均值，容易生成類似的視覺，可能更適合資訊性的網頁，像這類非傳統類型的網站還是需要人的介入。">Despite the heavy use of AI tools throughout, the human element remains irreplaceable. Every meaningful decision — the theme, the visual direction, the interaction design — required human judgment. As Agentic Workflows mature, it may eventually be possible to automate the entire pipeline. But AI tends toward the aesthetic average, producing results that can feel visually generic. For a project like this — unconventional and narrative-driven — human intervention isn't optional, it's what makes the difference.</p>
+      </div>
+
+    </main>
+
+    <!-- Making Of Footer -->
+    <footer class="mo-footer">
+      <div class="mo-footer-inner">
+        <div class="mo-foot-rule"></div>
+        <p class="footer-name">SECOND NATURE</p>
+        <p class="footer-sub" data-en="The Making Of" data-zh="幕後製作">The Making Of</p>
+      </div>
+    </footer>
+
+  </div><!-- /page-making-of -->
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="2,9 7,4 12,9"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

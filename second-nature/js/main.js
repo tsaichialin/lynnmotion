@@ -227,6 +227,15 @@ function applyLang() {
       if (c.hotspots[i]) lbl.textContent = c.hotspots[i][lang];
     });
   });
+
+  // Re-trigger Redacted Reveal for already-revealed cases
+  document.querySelectorAll('.case.revealed').forEach(caseEl => {
+    caseEl.classList.add('redact-reset');
+    caseEl.classList.remove('revealed');
+    void caseEl.offsetWidth; // force reflow
+    caseEl.classList.remove('redact-reset');
+    caseEl.classList.add('revealed');
+  });
 }
 
 // ── Scroll-controlled Video ──────────────────────────────────────────────────
@@ -487,6 +496,49 @@ function initBackToTop() {
   });
 }
 
+// ── Custom Cursor ─────────────────────────────────────────────────────────────
+function initCursor() {
+  // Only on mouse devices
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  const dot  = document.createElement('div');
+  const ring = document.createElement('div');
+  dot.className  = 'c-dot';
+  ring.className = 'c-ring';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  let mx = -100, my = -100; // actual mouse position
+  let rx = -100, ry = -100; // ring's lerped position
+  const LERP = 0.13;        // lag factor (lower = more lag)
+
+  // Move dot instantly on every mousemove
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.transform = `translate(${mx}px,${my}px)`;
+  }, { passive: true });
+
+  // Show on entry, hide when leaving the window
+  document.addEventListener('mouseenter', () => {
+    dot.classList.add('c-vis');
+    ring.classList.add('c-vis');
+  });
+  document.addEventListener('mouseleave', () => {
+    dot.classList.remove('c-vis');
+    ring.classList.remove('c-vis');
+  });
+
+  // Ring follows with lag via rAF
+  function tick() {
+    rx += (mx - rx) * LERP;
+    ry += (my - ry) * LERP;
+    ring.style.transform = `translate(${rx.toFixed(2)}px,${ry.toFixed(2)}px)`;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   buildCases();
   initLang();
@@ -497,4 +549,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initNarrativeReveal();
   initFooterReveal();
   initHotspots();
+  initCursor();
 });

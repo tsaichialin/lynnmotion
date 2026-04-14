@@ -3,10 +3,7 @@
    Detective · Noir · Editorial
 ══════════════════════════════════════════════════ */
 
-/* Noto Serif TC (Traditional Chinese) — weights 200–500 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500&display=swap');
-/* Inter (sans-serif for tabs, menus, Making Of body) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* Google Fonts loaded via <link> in HTML head (non-render-blocking) */
 
 @font-face {
   font-family: 'PPEditorialNew';
@@ -36,7 +33,7 @@
   --ease-c:  cubic-bezier(0.76,0,0.24,1);
   --ease-s:  cubic-bezier(0.25,0.46,0.45,0.94);
   --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --font-zh-sans: 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+  --font-zh-sans: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
 }
 
 /* ── Reset ── */
@@ -47,7 +44,44 @@ body {
   color: var(--text);
   background: transparent;
   /* overflow-x: hidden removed — breaks position:sticky in Firefox/Safari */
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='rgba(255,255,255,0.9)' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='rgba(255,255,255,0.9)'/%3E%3C/svg%3E") 16 16, crosshair;
+}
+@media (hover: hover) and (pointer: fine) {
+  body, body * { cursor: none !important; }
+}
+
+/* ── Custom Cursor ── */
+.c-dot,
+.c-ring {
+  position: fixed;
+  top: 0; left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.c-dot {
+  width: 6px; height: 6px;
+  background: rgba(255,255,255,0.9);
+  margin: -3px 0 0 -3px;
+}
+.c-ring {
+  width: 28px; height: 28px;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  margin: -14px 0 0 -14px;
+  transition: opacity 0.3s, width 0.2s, height 0.2s, margin 0.2s, border-color 0.2s;
+}
+.c-dot.c-vis, .c-ring.c-vis { opacity: 1; }
+/* Making-of page: dark ring */
+html[data-current-page="making-of"] .c-dot {
+  background: rgba(30,20,10,0.85);
+}
+html[data-current-page="making-of"] .c-ring {
+  border-color: rgba(30,20,10,0.4);
+}
+@media (hover: none), (pointer: coarse) {
+  .c-dot, .c-ring { display: none; }
 }
 
 /* ── Grain ── */
@@ -266,7 +300,7 @@ body {
 }
 .n-cue-text {
   font-family: var(--font-sans);
-  font-size: 0.8rem; letter-spacing: 0.24em;
+  font-size: 1rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: rgba(221,216,206,0.65);
 }
 
@@ -401,6 +435,12 @@ body {
   pointer-events: none;
   z-index: 2;
 }
+/* Instant reset on lang switch — no reverse transition */
+.case.redact-reset .redact-stack .redact-block::after {
+  transition: none !important;
+  transition-delay: 0s !important;
+}
+
 /* Sequential: title first, narrative second, item third */
 .case.revealed .redact-stack .redact-block:nth-child(1)::after {
   transform: scaleX(0);
@@ -452,12 +492,12 @@ body {
 /* ZH: Noto Serif TC with distinct weights per role */
 html[lang="zh-TW"] .case-title-en {
   font-family: var(--font-zh);
-  font-weight: 200;   /* ultra-light for large titles */
+  font-weight: 400;
   letter-spacing: 0.04em;
 }
 html[lang="zh-TW"] .rb-body {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.7rem;
   line-height: 1.6;
 }
@@ -635,27 +675,28 @@ html[lang="zh-TW"] .hs-label {
 ══════════════════════════════════════════════════ */
 html[lang="zh-TW"] .h-sub {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
 }
 html[lang="zh-TW"] .h-suffix {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
 }
 html[lang="zh-TW"] .hero-stamp {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
 }
 html[lang="zh-TW"] #narrative .n-redact span {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
 }
 html[lang="zh-TW"] .n-cue-text {
-  font-family: var(--font-zh);
-  font-weight: 400;
+  font-family: var(--font-zh-sans);
+  font-size: 1.05rem; letter-spacing: 0.1em;
+  font-weight: 600;
 }
 html[lang="zh-TW"] .f-line {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
 }
 html[lang="zh-TW"] .footer-name {
   font-family: var(--font-zh);
@@ -663,15 +704,15 @@ html[lang="zh-TW"] .footer-name {
 }
 html[lang="zh-TW"] .footer-sub {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
 }
 html[lang="zh-TW"] .cnc-text {
-  font-family: var(--font-zh);
-  font-weight: 400;
+  font-family: var(--font-zh-sans);
+  font-size: 1.05rem; font-weight: 600;
 }
 html[lang="zh-TW"] .cp-label {
   font-family: var(--font-zh);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* ══════════════════════════════════════════════════
@@ -814,7 +855,7 @@ html[lang="zh-TW"] .cp-label {
 }
 .mo-brand-label {
   font-family: var(--font-sans);
-  font-size: 1.2rem; letter-spacing: 0.1em;
+  font-size: 1.2rem; letter-spacing: 0.1rem;
   text-transform: uppercase; color: var(--accent);
 }
 .mo-hero-sep {
@@ -829,17 +870,13 @@ html[lang="zh-TW"] .cp-label {
 /* Main big title */
 .mo-title {
   font-family: var(--font);
-  font-size: clamp(2.4rem, 3.2vw, 3rem);
+  font-size: clamp(2.8rem, 3.6vw, 3.4rem);
   font-weight: 300;
-  line-height: 1.18;
+  line-height: 1.5;
   color: var(--text);
   letter-spacing: -0.02rem;
 }
-.mo-hero-rule {
-  width: 1px; height: 42px;
-  background: linear-gradient(to bottom, var(--adim), transparent);
-  margin: 2rem auto 1.5rem;
-}
+/* .mo-hero-rule removed */
 
 /* ── Making Of Main ── */
 .mo-main {
@@ -901,7 +938,7 @@ html[lang="zh-TW"] .cp-label {
   .mo-step-title { font-size: clamp(1.25rem, 1.5vw, 1.4rem); }
 }
 html[lang="zh-TW"] .mo-part-title {
-  font-family: var(--font-zh); font-weight: 200;
+  font-family: var(--font-zh); font-weight: 400;
   font-size: clamp(1.8rem, 2.4vw, 2.2rem);
 }
 
@@ -911,6 +948,7 @@ html[lang="zh-TW"] .mo-part-title {
   font-size: clamp(1.05rem, 1.25vw, 1.25rem);
   line-height: 1.7; color: var(--dim);
   letter-spacing: -0.01em;
+  margin-bottom: 1.4em;
 }
 .mo-part-body p:last-child { margin-bottom: 0; }
 html[lang="zh-TW"] .mo-part-body p {
@@ -952,12 +990,12 @@ html[lang="zh-TW"] .mo-part-body p {
 }
 .mo-list li {
   font-family: var(--font-sans);
-  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
-  line-height: 1.7; color: var(--dim);
+  font-size: clamp(1.05rem, 1.3vw, 1.3rem);
+  line-height: 1.5; color: var(--dim);
   padding-left: 1.3rem; position: relative;
   letter-spacing: -0.01em;
 }
-html[lang="zh-TW"] .mo-list li { font-size: clamp(1.05rem, 1.3vw, 1.2rem); }
+html[lang="zh-TW"] .mo-list li { font-size: clamp(1.05rem, 1.3vw, 1.2rem); line-height: 2.05; }
 .mo-list li::before {
   content: '—';
   position: absolute; left: 0; color: var(--accent); opacity: 0.65;
@@ -996,6 +1034,7 @@ html[lang="zh-TW"] .mo-list li { font-size: clamp(1.05rem, 1.3vw, 1.2rem); }
 }
 html[lang="zh-TW"] .mo-step-title { font-family: var(--font-sans); }
 html[lang="zh-TW"] .mo-step-num { padding-top: 0; }
+html[lang="zh-TW"] .mo-step { align-items: baseline; }
 .mo-step-content p {
   font-family: var(--font-sans);
   font-size: clamp(1.05rem, 1.3vw, 1.3rem);
@@ -1003,6 +1042,17 @@ html[lang="zh-TW"] .mo-step-num { padding-top: 0; }
   letter-spacing: -0.01em;
 }
 html[lang="zh-TW"] .mo-step-content p { line-height: 2.05; }
+
+/* ── Language-specific visibility ── */
+html[lang="zh-TW"] .mo-en-only { display: none; }
+.mo-zh-only { display: none; }
+html[lang="zh-TW"] .mo-zh-only {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
+  line-height: 1.8; color: var(--dim);
+  letter-spacing: -0.01em;
+}
 
 /* ── Closing ── */
 .mo-closing {
@@ -1014,9 +1064,8 @@ html[lang="zh-TW"] .mo-step-content p { line-height: 2.05; }
   font-family: var(--font);
   font-size: clamp(1rem, 1.9vw, 1.4rem);
   line-height: 1.75; color: var(--dim);
-  font-style: italic;
 }
-html[lang="zh-TW"] .mo-closing-line { font-family: var(--font-zh); font-weight: 200; }
+html[lang="zh-TW"] .mo-closing-line { font-family: var(--font-zh); font-weight: 400; }
 
 /* ── Making Of Footer ── */
 .mo-footer {

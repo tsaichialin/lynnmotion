@@ -192,11 +192,22 @@ function buildCases() {
 }
 
 // ── Language ─────────────────────────────────────────────────────────────────
+let notoLoaded = false;
+function loadNotoFonts() {
+  if (notoLoaded) return;
+  notoLoaded = true;
+  const link = document.createElement('link');
+  link.rel  = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600&family=Noto+Serif+TC:wght@400&display=swap';
+  document.head.appendChild(link);
+}
+
 function initLang() {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const l = btn.dataset.lang;
       if (l === lang) return;
+      if (l === 'zh') loadNotoFonts();
       lang = l;
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
       document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';

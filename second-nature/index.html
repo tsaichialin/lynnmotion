@@ -6,10 +6,12 @@
   <title>SECOND NATURE — Season Collection</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <!-- Google Fonts: preconnect first, then single combined request (no render-blocking @import) -->
+  <!-- Google Fonts: preconnect + Inter only on initial load; Noto loaded on demand when zh is activated -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;600&family=Noto+Serif+TC:wght@400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <!-- Preload hero poster so it appears before video is ready -->
+  <link rel="preload" as="image" href="assets/images/HERO.jpg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

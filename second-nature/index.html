@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-  <!-- Preload hero video so download starts as early as possible -->
-  <link rel="preload" as="video" href="assets/videos/hero_bg_video.mp4" type="video/mp4">
+  <!-- Preload hero video from Cloudflare R2 CDN -->
+  <link rel="preload" as="video" href="https://pub-af7f9f080a9345b7a20389568b0e3e60.r2.dev/hero_bg_video.mp4" type="video/mp4">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -53,7 +53,7 @@
 
       <div class="video-sticky" id="video-sticky">
         <video id="hero-video" muted playsinline preload="auto" tabindex="-1">
-          <source src="assets/videos/hero_bg_video.mp4" type="video/mp4">
+          <source src="https://pub-af7f9f080a9345b7a20389568b0e3e60.r2.dev/hero_bg_video.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
       </div>

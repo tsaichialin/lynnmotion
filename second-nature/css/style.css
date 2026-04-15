@@ -1117,6 +1117,10 @@ html[lang="zh-TW"] .mo-closing-line { font-family: var(--font-zh); font-weight: 
 #back-to-top:hover {
   background: rgba(255,255,255,0.14);
 }
+#back-to-top:active {
+  transform: scale(0.84);
+  transition: transform 0.1s ease;
+}
 #back-to-top svg { display: block; }
 /* Day theme overrides */
 [data-current-page="making-of"] #back-to-top {

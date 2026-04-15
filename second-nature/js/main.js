@@ -484,15 +484,29 @@ function initPageRouting() {
 function initBackToTop() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      btn.classList.add('btt-visible');
-    } else {
-      btn.classList.remove('btt-visible');
-    }
+    btn.classList.toggle('btt-visible', window.scrollY > 400);
   }, { passive: true });
+
   btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const start    = window.scrollY;
+    const duration = Math.min(680, Math.max(420, start * 0.45));
+    let   startTime = null;
+
+    // easeInOutQuart — smooth ramp up and gentle landing, no extreme flat zones
+    function ease(t) {
+      return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+    }
+
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      window.scrollTo(0, start * (1 - ease(progress)));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
   });
 }
 

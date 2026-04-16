@@ -74,7 +74,7 @@ const CASES = [
   {
     id:'12', file:'Case 12 · The Outrun',
     en:{ title:'The Outrun', narrative:"Some routes only work if no one knows. But she could already hear them behind her.", item:'Blue ribbed turtleneck knit top, slim fit, rib-knit trim, cotton-wool blend.' },
-    zh:{ title:'步步進逼', narrative:'有些路線，只有在沒人知道的情況下才有效\n可惜她已經聽見它們在她身後了', item:'藍色羅紋高領針織上衣，修身剪裁，羅紋滾邊，棉羊毛混紡' },
+    zh:{ title:'步步進逼', narrative:'有些路線，只有在沒人知道的情況下才有效\n可惜她已經聽見它們在她身後了', item:'藍色羅紋高領針織上衣，修身剪裁，羅紋滾邊，羊毛混紡' },
     hotspots:[{ x:35,y:62,en:'Rib-knit collar',zh:'羅紋高領'}]
   },
   {

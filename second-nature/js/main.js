@@ -150,7 +150,7 @@ function buildCases() {
     sec.innerHTML = `
       <div class="case-img-wrap">
         <div class="case-img-frame">
-          <img src="assets/images/cases/${c.file}.jpg" alt="Case ${c.id}" ${i > 2 ? 'loading="lazy"' : ''}>
+          <img ${i < 3 ? `src fetchpriority="high"` : `data-src`}="assets/images/cases/${c.file}.jpg" alt="Case ${c.id}">
           ${hotspotsHtml}
         </div>
       </div>
@@ -564,6 +564,13 @@ function initCursor() {
   requestAnimationFrame(tick);
 }
 
+function preloadRemainingCases() {
+  document.querySelectorAll('#cases-container img[data-src]').forEach(img => {
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   buildCases();
   initLang();
@@ -575,4 +582,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFooterReveal();
   initHotspots();
   initCursor();
+});
+
+window.addEventListener('load', () => {
+  setTimeout(preloadRemainingCases, 200);
 });

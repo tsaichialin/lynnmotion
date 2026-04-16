@@ -150,7 +150,7 @@ function buildCases() {
     sec.innerHTML = `
       <div class="case-img-wrap">
         <div class="case-img-frame">
-          <img ${i < 3 ? `src fetchpriority="high"` : `data-src`}="assets/images/cases/${c.file}.jpg" alt="Case ${c.id}">
+          <img ${i < 3 ? `src="assets/images/cases/${c.file}.jpg" fetchpriority="high"` : `data-src="assets/images/cases/${c.file}.jpg"`} alt="Case ${c.id}">
           ${hotspotsHtml}
         </div>
       </div>

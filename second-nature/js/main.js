@@ -537,18 +537,16 @@ function initCursor() {
   let rx = -100, ry = -100; // ring's lerped position
   const LERP = 0.13;        // lag factor (lower = more lag)
 
-  // Move dot instantly on every mousemove
+  // Move dot instantly on every mousemove; show on first move
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
     my = e.clientY;
     dot.style.transform = `translate(${mx}px,${my}px)`;
-  }, { passive: true });
-
-  // Show on entry, hide when leaving the window
-  document.addEventListener('mouseenter', () => {
     dot.classList.add('c-vis');
     ring.classList.add('c-vis');
-  });
+  }, { passive: true });
+
+  // Hide when leaving the window
   document.addEventListener('mouseleave', () => {
     dot.classList.remove('c-vis');
     ring.classList.remove('c-vis');

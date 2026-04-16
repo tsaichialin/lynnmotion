@@ -56,7 +56,7 @@ const CASES = [
   {
     id:'09', file:'Case 09 · The Certain',
     en:{ title:'The Certain', narrative:'Putting it on was a declaration. Everyone understood.', item:'Vivid yellow turtleneck chunky knit sweater, oversized drop shoulders, thick rib knit, pure wool.' },
-    zh:{ title:'心意已決', narrative:'她穿上它是一個宣告，所有人都明白了', item:'鮮黃色高領粗針毛衣，落肩寬版剪裁，厚羅紋針織，純羊毛' },
+    zh:{ title:'心意已決', narrative:'她穿上它是一個宣告，所有人都明白了', item:'鮮黃色高領粗針毛衣，落肩寬版剪裁，純羊毛厚羅紋針織' },
     hotspots:[{ x:50,y:74,en:'Turtleneck',zh:'粗針織高領'}]
   },
   {

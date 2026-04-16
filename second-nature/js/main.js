@@ -68,7 +68,7 @@ const CASES = [
   {
     id:'11', file:'Case 11 · The Ordinary',
     en:{ title:'The Ordinary', narrative:'Time here always moved a little slower than outside.', item:'Deep navy double-breasted windbreaker, standing collar, waist belt, classic lining, detachable design.' },
-    zh:{ title:'見怪不怪', narrative:'這裡的時間總是比外面慢一點', item:'深海軍藍雙排扣風衣，立領，腰帶，經典內裡，可拆卸設計' },
+    zh:{ title:'見怪不怪', narrative:'這裡的時間總是比外面慢一點', item:'深海軍藍雙排扣風衣，腰帶，經典內裡，可拆卸設計' },
     hotspots:[{ x:28,y:78,en:'Double-breasted',zh:'雙排扣設計'}]
   },
   {

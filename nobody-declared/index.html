@@ -7,6 +7,10 @@
   <meta name="description" content="A conceptual motion poster design proposal. Exploring how the AI era can reimagine poster design through fluid, moving imagery.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="any">
+  <meta name="theme-color" content="#979797">
+  <meta property="og:title" content="Nobody Declared — Visual Proposal">
+  <meta property="og:description" content="A conceptual motion poster design proposal. Exploring how the AI era can reimagine poster design through fluid, moving imagery.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://pub-af7f9f080a9345b7a20389568b0e3e60.r2.dev" crossorigin>
@@ -23,13 +27,20 @@
     <div class="nd-hero-inner nd-container">
       <div class="nd-hero-content">
         <div class="nd-title-wrap">
-          <h1 class="nd-title nd-title--a" aria-label="Nobody Declared">
-            <span class="nd-title-word">Nobody</span>
-            <span class="nd-title-word">Declared</span>
+          <!-- Ghost h1 — in flow to set wrapper height; opacity:0 keeps it accessible -->
+          <h1 class="nd-txt-ghost" aria-label="Nobody Declared">
+            <div>Nobody</div>
+            <div>Declared</div>
           </h1>
-          <div class="nd-title nd-title--b" aria-hidden="true">
-            <span class="nd-title-word">Nobody</span>
-            <span class="nd-title-word">Declared</span>
+          <!-- Cyan layer -->
+          <div class="nd-txt-layer nd-txt-c" aria-hidden="true">
+            <div><span class="gl gl-0">N</span><span class="gl gl-1">O</span><span class="gl gl-2">B</span><span class="gl gl-3">O</span><span class="gl gl-4">D</span><span class="gl gl-5">Y</span></div>
+            <div><span class="gl gl-6">D</span><span class="gl gl-7">E</span><span class="gl gl-8">C</span><span class="gl gl-9">L</span><span class="gl gl-10">A</span><span class="gl gl-11">R</span><span class="gl gl-12">E</span><span class="gl gl-13">D</span></div>
+          </div>
+          <!-- Magenta layer -->
+          <div class="nd-txt-layer nd-txt-m" aria-hidden="true">
+            <div><span class="gl gl-0">N</span><span class="gl gl-1">O</span><span class="gl gl-2">B</span><span class="gl gl-3">O</span><span class="gl gl-4">D</span><span class="gl gl-5">Y</span></div>
+            <div><span class="gl gl-6">D</span><span class="gl gl-7">E</span><span class="gl gl-8">C</span><span class="gl gl-9">L</span><span class="gl gl-10">A</span><span class="gl gl-11">R</span><span class="gl gl-12">E</span><span class="gl gl-13">D</span></div>
           </div>
         </div>
       </div>
@@ -53,19 +64,35 @@
         <span class="nd-section-num">01</span>
         <h2 class="nd-section-title">Motion Poster</h2>
       </header>
-      <div class="nd-poster-pair nd-reveal">
-        <figure class="nd-fig nd-fig--ref">
+      <p class="nd-lead">Nobody Declared is a motion poster design project for a fictional film — a darkly comedic story about five mob bosses who travel Europe in disguise, conducting business under the cover of tourism.</p>
+      <p class="nd-lead">The project explores a central question: what happens when a static design format gains the dimension of time? A movie poster is a film's most distilled visual language — this project attempts to bring that format into motion through AI-assisted design.</p>
+      <p class="nd-lead">The work includes a motion poster with eye-tracking interaction, a series of AI-generated film stills styled with Risograph and screen-print aesthetics, a concept short film.</p>
+      <!-- Row 1: images — 1 col + 2 col wide -->
+      <div class="nd-poster-imgs nd-reveal">
+        <figure class="nd-fig">
           <img src="assets/001_01_original_poster.jpg" alt="Original character reference — tattooed man with camera" loading="lazy">
           <figcaption>ORIGINAL AI-GENERATED IMAGE</figcaption>
         </figure>
-        <figure class="nd-fig nd-fig--video">
-          <video autoplay muted loop playsinline>
-            <source src="https://pub-af7f9f080a9345b7a20389568b0e3e60.r2.dev/Nobody%20Declared_hero_V3.mp4" type="video/mp4">
-          </video>
-          <figcaption>MOTION POSTER — RE-STYLED & ANIMATED</figcaption>
+        <figure class="nd-fig">
+          <img src="assets/001_01_169poster.jpg" alt="Movie poster — 16:9 version" loading="eager">
+          <figcaption>MOVIE POSTER</figcaption>
         </figure>
       </div>
-      <p class="nd-lead">The mob boss — camera in one hand, dog tucked under the other arm. Distracted on the surface. Watching everything underneath.</p>
+      <!-- Row 2: videos — half + half, MOTION POSTER2 cropped to portrait -->
+      <div class="nd-poster-vids nd-reveal">
+        <figure class="nd-fig nd-fig--video">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="https://pub-af7f9f080a9345b7a20389568b0e3e60.r2.dev/Nobody%20Declared_hero_V3.mp4" type="video/mp4">
+          </video>
+          <figcaption>MOTION POSTER 01 — Graphic, high-contrast style.</figcaption>
+        </figure>
+        <figure class="nd-fig nd-fig--video">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="https://pub-af7f9f080a9345b7a20389568b0e3e60.r2.dev/Nobody%20Declared_video-concept2.mp4" type="video/mp4">
+          </video>
+          <figcaption>MOTION POSTER 02 — Alternate version, realistic style</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -76,6 +103,7 @@
         <span class="nd-section-num">02</span>
         <h2 class="nd-section-title">Film Stills</h2>
       </header>
+      <p class="nd-lead">AI-generated film stills for "Nobody Declared".</p>
       <div class="nd-stills-grid nd-reveal">
         <figure class="nd-fig">
           <img src="assets/poster106.jpg" alt="Two figures walking in hotel corridor" loading="lazy">
@@ -105,7 +133,6 @@
           <img src="assets/poster109.jpg" alt="Nobody Declared — final poster with full credits" loading="lazy">
         </figure>
       </div>
-      <p class="nd-stills-caption">AI-generated film stills for "Nobody Declared"</p>
     </div>
   </section>
 
@@ -131,10 +158,7 @@
     <div class="nd-container">
 
       <header class="nd-section-header">
-        <h2 class="nd-section-title">
-          The Making Of
-
-        </h2>
+        <h2 class="nd-section-title">The Making Of</h2>
       </header>
 
       <!-- 1 -->
@@ -239,9 +263,7 @@
             <p class="nd-failed-text">During style conversion, the use of halftone and misregistered print effects occasionally produced moiré patterns — those images were discarded.</p>
             <figure class="nd-fig nd-fig--failed">
               <img src="assets/dots-error.jpg" alt="Discarded image — moiré artifact" loading="lazy">
-              <figcaption>9. Moiré patterns appeared
-
-</figcaption>
+              <figcaption>9. Moiré patterns appeared</figcaption>
             </figure>
           </div>
         </div>
@@ -266,7 +288,7 @@
 
   <!-- Back to top -->
   <button id="back-to-top" aria-label="Back to top">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="2,9 7,4 12,9"/>
     </svg>
   </button>

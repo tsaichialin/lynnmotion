@@ -5,8 +5,13 @@ function initBackToTop() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
 
+  let bttVisible = false;
   window.addEventListener('scroll', () => {
-    btn.classList.toggle('btt-visible', window.scrollY > 400);
+    const shouldShow = window.scrollY > 400;
+    if (shouldShow !== bttVisible) {
+      bttVisible = shouldShow;
+      btn.classList.toggle('btt-visible', shouldShow);
+    }
   }, { passive: true });
 
   btn.addEventListener('click', () => {
@@ -29,52 +34,78 @@ function initBackToTop() {
   });
 }
 
-// ── Split title words into per-character spans ───────────────────────────────
-function splitIntoLetters() {
-  document.querySelectorAll('.nd-title .nd-title-word').forEach(word => {
-    const chars = [...word.textContent];
-    word.textContent = '';
-    chars.forEach(char => {
-      const s = document.createElement('span');
-      s.className = 'nd-letter';
-      s.textContent = char === ' ' ? ' ' : char;
-      // Independent random drift scales for X and Y axes
-      s.style.setProperty('--d',  (Math.random() * 2 - 1).toFixed(3));
-      s.style.setProperty('--dv', (Math.random() * 2 - 1).toFixed(3));
-      // Small random delay jitter so characters don't all move in lockstep
-      s.style.setProperty('--letter-delay', (1.0 + Math.random() * 0.08 - 0.04).toFixed(3) + 's');
-      word.appendChild(s);
-    });
-  });
+// ── Hero animation — inject keyframes matching Nobody Declared Standalone ────
+function injectHeroAnimation() {
+  const DUR = 4.3, OFFSET = 7, ANGLE = 44;
+  const CYAN = '#11dcfc', MAG = '#ff3ea5', BLEND = 'color-dodge';
+  const SPREAD = 1, STAGGER = 0.5;
+  const easeCss = 'cubic-bezier(0.42,0,0.58,1)';
+
+  const rad  = (ANGLE * Math.PI) / 180;
+  const dx   = +(Math.cos(rad) * OFFSET).toFixed(2);
+  const dy   = +(Math.sin(rad) * OFFSET).toFixed(2);
+  const micro = OFFSET * SPREAD * 0.25;
+  const vary  = (i, s) => s * Math.sin(i * 2.39996);
+
+  let css = `
+    .nd-txt-c { color:${CYAN}; mix-blend-mode:${BLEND}; animation:nd-blk-c ${DUR}s ${easeCss} infinite; }
+    .nd-txt-m { color:${MAG};  mix-blend-mode:${BLEND}; animation:nd-blk-m ${DUR}s ${easeCss} infinite; }
+    @keyframes nd-blk-c {
+      0%,15% { transform:translate(${-dx}px,${-dy}px); }
+      50%,78% { transform:translate(0,0); }
+      100%    { transform:translate(${-dx}px,${-dy}px); }
+    }
+    @keyframes nd-blk-m {
+      0%,15% { transform:translate(${dx}px,${dy}px); }
+      50%,78% { transform:translate(0,0); }
+      100%    { transform:translate(${dx}px,${dy}px); }
+    }
+  `;
+
+  for (let i = 0; i < 14; i++) {
+    const mx    = +(vary(i,   micro)).toFixed(2);
+    const my    = +(vary(i+3, micro * 0.6)).toFixed(2);
+    const delay = -Math.abs(+(vary(i, DUR * STAGGER)).toFixed(3));
+    const spd   = +(DUR * (1 + vary(i, 0.12))).toFixed(2);
+    css += `
+      @keyframes nd-gl-${i} {
+        0%   { transform:translate(${mx}px,${my}px); }
+        50%  { transform:translate(${+(-mx*0.5).toFixed(2)}px,${+(-my*0.5).toFixed(2)}px); }
+        100% { transform:translate(${mx}px,${my}px); }
+      }
+      .nd-txt-layer .gl-${i} { animation:nd-gl-${i} ${spd}s ease-in-out ${delay}s infinite; }
+    `;
+  }
+
+  const st = document.createElement('style');
+  st.id = '__nd-hero-anim';
+  document.head.appendChild(st);
+  st.textContent = css;
 }
 
-// ── Hero Animation Replay ────────────────────────────────────────────────────
+// ── Hero animation replay on re-entry ────────────────────────────────────────
 function initHeroAnimation() {
   const hero = document.querySelector('.nd-hero');
   if (!hero) return;
 
-  const animEls = [
-    hero.querySelector('.nd-title--a'),
-    hero.querySelector('.nd-title--b'),
-  ].filter(Boolean);
-
   function replayAnimations() {
-    const all = [...animEls, ...hero.querySelectorAll('.nd-letter')];
-    all.forEach(el => { el.style.animation = 'none'; });
-    void animEls[0]?.offsetWidth;
-    all.forEach(el => { el.style.animation = ''; });
+    const layers = hero.querySelectorAll('.nd-txt-layer');
+    layers.forEach(l => {
+      l.style.animation = 'none';
+      l.querySelectorAll('.gl').forEach(g => { g.style.animation = 'none'; });
+    });
+    void hero.querySelector('.nd-txt-layer')?.offsetWidth;
+    layers.forEach(l => {
+      l.style.animation = '';
+      l.querySelectorAll('.gl').forEach(g => { g.style.animation = ''; });
+    });
   }
 
   let wasHidden = false;
-
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (!e.isIntersecting) {
-        wasHidden = true;
-      } else if (wasHidden) {
-        wasHidden = false;
-        replayAnimations();
-      }
+      if (!e.isIntersecting) wasHidden = true;
+      else if (wasHidden) { wasHidden = false; replayAnimations(); }
     });
   }, { threshold: 0.4 });
 
@@ -99,8 +130,12 @@ function initScrollReveal() {
 }
 
 // ── Lazy Video ───────────────────────────────────────────────────────────────
+// Motion Poster videos use preload="auto" and play immediately on load.
+// Concept Short Film uses data-src + preload="none"; it starts downloading
+// after window.load (images, fonts done) so it doesn't compete with the
+// top two autoplay videos during initial page load.
 function initLazyVideos() {
-  const lazyVideos = [...document.querySelectorAll('video')].filter(v =>
+  const lazyVideos = Array.from(document.querySelectorAll('video')).filter(v =>
     v.querySelector('source[data-src]')
   );
   if (!lazyVideos.length) return;
@@ -114,7 +149,6 @@ function initLazyVideos() {
     });
   }
 
-  // Start downloading once page resources (images, fonts) are done
   if (document.readyState === 'complete') {
     loadAll();
   } else {
@@ -122,11 +156,46 @@ function initLazyVideos() {
   }
 }
 
+// ── Match poster image heights ────────────────────────────────────────────────
+function matchPosterHeight() {
+  const row = document.querySelector('.nd-poster-imgs');
+  if (!row) return;
+  const leftFig  = row.querySelector('.nd-fig:first-child');
+  const rightFig = row.querySelector('.nd-fig:last-child');
+  const rightImg = rightFig?.querySelector('img');
+  if (!leftFig || !rightImg) return;
+
+  function sync() {
+    const h = rightFig.getBoundingClientRect().height;
+    if (h > 0) leftFig.style.height = h + 'px';
+  }
+
+  function trySync() {
+    if (rightImg.naturalHeight > 0) requestAnimationFrame(sync);
+  }
+
+  // Try immediately (cached), otherwise wait for image load or full page load
+  if (rightImg.complete && rightImg.naturalHeight > 0) {
+    requestAnimationFrame(sync);
+  } else {
+    rightImg.addEventListener('load', trySync, { once: true });
+    window.addEventListener('load', trySync, { once: true });
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    leftFig.style.height = '';
+    resizeTimer = setTimeout(sync, 80);
+  }, { passive: true });
+}
+
 // ── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
-  splitIntoLetters();
+  injectHeroAnimation();
   initHeroAnimation();
   initScrollReveal();
   initLazyVideos();
+  matchPosterHeight();
 });
